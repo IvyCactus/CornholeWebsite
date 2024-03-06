@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <h3 id="textarea"></h3>
+  <input type="button" id="him" value="save" onclick="add()">
+  <input type="text" id="nick" value="">
+  <input type="button" id="reset" value="reset" onclick="rezet()">
+  <input type="button" id="run" value="run" onclick="run()">
+</body>
+<script>
+  function run() {
+    if (localStorage.gh) {
+      var data = localStorage.gh;
+      const yeah = data.split("~");
+      for (let i = 0; i < yeah.length; ++i) {
+        var ryan = yeah[i];
+        const kang = ryan.split("|");
+        for (let j = 0; j < kang.length; ++j) {
+          console.log(kang[j]);
+        }
+      }
+    }
+  }
+  function add() {
+    var f = "";
+    if (localStorage.gh == "") {
+      f = document.getElementById("nick").value;
+    } else {
+      f = "~" + document.getElementById("nick").value;
+    }
+    localStorage.gh = localStorage.gh + f;
+  }
+  function rezet() {
+    localStorage.gh = "";
+  }
+</script>
+
+</html>

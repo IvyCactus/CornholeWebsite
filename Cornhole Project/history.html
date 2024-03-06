@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Game History</title>
+</head>
+
+<body>
+    <h1>Game History</h1>
+    <input type="button" id="home" value="Home" onclick="window.location.href='home.html'">
+    <input type="button" id="manage" value="History Management" onclick="window.location.href='historymanagement.html'">
+    <h3 id="max"></h3>
+</body>
+<script>
+    var data = localStorage.gh;
+    if (data != "") {
+        const yeah = data.split("~");
+        var info = "";
+        for (let i = 0; i < yeah.length; ++i) {
+            var ryan = yeah[i];
+            const kang = ryan.split("|");
+            info += kang[0]+"'s Score: " + kang[1] +" "+kang[2] +"'s Score: " + kang[3] + " Date Played: " + kang[4] + "\n";
+        }
+        document.getElementById("max").innerText = info;
+    }else{
+        document.getElementById("max").innerText = "No Recorded Game History";
+    }
+</script>
+
+</html>
